@@ -1,21 +1,21 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
+  selector: "app-root",
+  templateUrl: "./app.component.html",
+  styleUrls: ["./app.component.css"],
 })
 export class AppComponent {
-  password = '';
+  password = "";
   length = 0;
   includeLetters = false;
   includeSymbols = false;
   includeNumbers = false;
   onButtonClick() {
-    const numbers = '1234567890';
-    const letters = 'abcdefghijklmnopqrstuvwxyz';
-    const symbols = '!@#$%^&*()';
-    let validChars = '';
+    const numbers = "1234567890";
+    const letters = "abcdefghijklmnopqrstuvwxyz";
+    const symbols = "!@#$%^&*()";
+    let validChars = "";
     if (this.includeLetters) {
       validChars += letters;
     }
@@ -23,22 +23,22 @@ export class AppComponent {
       validChars += numbers;
     }
     if (this.includeSymbols) {
-      validChars + symbols;
+      validChars += symbols;
     }
-    let generatedPassword = '';
+    let generatedPassword = "";
     for (let i = 0; i < this.length; i++) {
       const index = Math.floor(Math.random() * validChars.length);
       generatedPassword += validChars[index];
     }
     this.password = generatedPassword;
   }
-  onChangeLetters() {
+  onChangeUseLetters() {
     this.includeLetters = !this.includeLetters;
   }
-  onChangeNumbers() {
+  onChangeUseNumbers() {
     this.includeNumbers = !this.includeNumbers;
   }
-  onChangeSymbols() {
+  onChangeUseSymbols() {
     this.includeSymbols = !this.includeSymbols;
   }
   onChangeLength(event: Event) {
